@@ -19,8 +19,8 @@
   </head>
   <body>
     <div class="announce">
-      Free shipping on orders over $40 &nbsp;|&nbsp; Use code <b>GLOW15</b> for
-      15% off
+      Free shipping on orders over 2,000 EGP &nbsp;|&nbsp; Use code
+      <b>GLOW15</b> for 15% off
     </div>
     <nav class="navbar navbar-expand-lg sticky-top">
       <div class="container">
@@ -41,11 +41,11 @@
           id="menu"
         >
           <a class="nav-link active" href="./index.html">Home</a>
-          <a class="nav-link" href="#categories">Shop</a>
-          <a class="nav-link" href="#bestsellers">Best sellers</a>
-          <a class="nav-link" href="#miniset">Mini set</a>
-          <a class="nav-link" href="#reviews">Reviews</a>
-          <a class="nav-link" href="#contact">Contact</a>
+          <a class="nav-link" href="index.html#categories">Shop</a>
+          <a class="nav-link" href="index.html#bestsellers">Best sellers</a>
+          <a class="nav-link" href="index.html#miniset">Mini set</a>
+          <a class="nav-link" href="index.html#reviews">Reviews</a>
+          <a class="nav-link" href="#faq">FAQ</a>
         </div>
       </div>
     </nav>
@@ -129,7 +129,7 @@
         </div>
         <div class="row g-3 g-lg-4 justify-content-center">
           <div class="col-4 col-md-2">
-            <a class="cat" href="#cleanser">
+            <a class="cat" href="#f-cleanser">
               <span class="oval">
                 <img src="../photos/Medicube.jpg" alt="Cleansers" />
                 <video
@@ -144,9 +144,9 @@
             </a>
           </div>
           <div class="col-4 col-md-2">
-            <a class="cat" href="#serum">
-              <span class="oval"
-                ><img src="../photos/serum.jpg" alt="Serums" />
+            <a class="cat" href="#f-serum">
+              <span class="oval">
+                <img src="../photos/serum.jpg" alt="Serums" />
                 <video
                   src="../videos/video2.mp4"
                   muted
@@ -159,10 +159,10 @@
             </a>
           </div>
           <div class="col-4 col-md-2">
-            <a class="cat" href="#moisturizer">
-              <span class="oval"
-                ><img
-                  src="../photos/Medicube Collagen Jelly Cream Crema Viso con Collagene Idrolizzato, Effetto Idratazione & Glow.jpg"
+            <a class="cat" href="#f-moisturizer">
+              <span class="oval">
+                <img
+                  src="../photos/Medicube Collagen Jelly Cream Crema Viso con Collagene Idrolizzato, Effetto Idratazione &amp; Glow.jpg"
                   alt="Moisturizers"
                 />
                 <video
@@ -177,10 +177,10 @@
             </a>
           </div>
           <div class="col-4 col-md-2">
-            <a class="cat" href="#sun">
-              <span class="oval"
-                ><img
-                  src="../photos/Medicube Collagen Glow Sunscreen SPF 50, Just Glow No Cast Facial Sun Lotion, Soothing & Hydrating Sunscreen With Centella Asiatica, Anti-Photoaging Korean Sun Care.jpg"
+            <a class="cat" href="#f-sun">
+              <span class="oval">
+                <img
+                  src="../photos/Medicube Collagen Glow Sunscreen SPF 50, Just Glow No Cast Facial Sun Lotion, Soothing &amp; Hydrating Sunscreen With Centella Asiatica, Anti-Photoaging Korean Sun Care.jpg"
                   alt="Sun care"
                 />
                 <video
@@ -195,10 +195,10 @@
             </a>
           </div>
           <div class="col-4 col-md-2">
-            <a class="cat" href="#mask">
-              <span class="oval"
-                ><img
-                  src="../photos/MEDICUBE PDRN PINK COLLAGEN GEL MASK - SALMON DNA & OVERNIGHT.jpg"
+            <a class="cat" href="#f-mask">
+              <span class="oval">
+                <img
+                  src="../photos/MEDICUBE PDRN PINK COLLAGEN GEL MASK - SALMON DNA &amp; OVERNIGHT.jpg"
                   alt="Masks"
                 />
                 <video
@@ -213,19 +213,20 @@
             </a>
           </div>
           <div class="col-4 col-md-2">
-            <a class="cat" href="#sets">
-              <span class="oval"
-                ><img
+            <a class="cat" href="#f-sets">
+              <span class="oval">
+                <img
                   src="../photos/Medicube PDRN Glow Essentials Kit, Mini Skincare Travel Set, 5-Step Routine.jpg"
-                  alt="Gift sets" />
+                  alt="Gift sets"
+                />
                 <video
                   src="../videos/video6.mp4"
                   muted
                   loop
                   autoplay
                   playsinline
-                ></video
-              ></span>
+                ></video>
+              </span>
               <span class="cat-name">Gift sets</span>
             </a>
           </div>
@@ -250,15 +251,31 @@
         </div>
       </div>
     </section>
-    <!-- Products -->
+
     <section class="section products" id="bestsellers">
       <div class="container">
+        <!-- filter anchors: a category link jumps here and :target applies the filter -->
+        <span id="f-all" class="f-anchor"></span>
+        <span id="f-cleanser" class="f-anchor"></span>
+        <span id="f-serum" class="f-anchor"></span>
+        <span id="f-moisturizer" class="f-anchor"></span>
+        <span id="f-sun" class="f-anchor"></span>
+        <span id="f-mask" class="f-anchor"></span>
+        <span id="f-sets" class="f-anchor"></span>
         <div class="products-head">
-          <h2>Best sellers</h2>
-          <a href="#bestsellers" class="view-all">View all</a>
+          <h2>
+            <span class="t-all">Best sellers</span>
+            <span class="t-cat t-cleanser">Cleansers</span>
+            <span class="t-cat t-serum">Serums</span>
+            <span class="t-cat t-moisturizer">Moisturizers</span>
+            <span class="t-cat t-sun">Sun care</span>
+            <span class="t-cat t-mask">Masks</span>
+            <span class="t-cat t-sets">Gift sets</span>
+          </h2>
+          <a href="#f-all" class="view-all">View all</a>
         </div>
-        <div class="row g-3 g-lg-4">
-          <div class="col-6 col-lg-3">
+        <div class="row g-3 g-lg-4 justify-content-center">
+          <div class="col-6 col-lg-3 product-col" data-cat="cleanser">
             <article class="product" id="cleanser">
               <input type="checkbox" class="heart-check" id="heart-1" />
               <label
@@ -277,8 +294,9 @@
                 Cleanser
               </h3>
               <div class="sub">
-                Daily Facial Cleanser for Pores - Uneven Skin Tone & Texture,
-                Hydrating & Non-Stripping Face Wash, Korean Skincare, 4.23 oz
+                Daily Facial Cleanser for Pores - Uneven Skin Tone &amp;
+                Texture, Hydrating &amp; Non-Stripping Face Wash, Korean
+                Skincare, 4.23 oz
               </div>
               <div class="stars" aria-label="4.5 out of 5">
                 ★★★★☆ <small>(125)</small>
@@ -287,7 +305,7 @@
               <a href="#" class="btn-add">Add to cart</a>
             </article>
           </div>
-          <div class="col-6 col-lg-3">
+          <div class="col-6 col-lg-3 product-col" data-cat="serum">
             <article class="product" id="serum">
               <input type="checkbox" class="heart-check" id="heart-2" />
               <label
@@ -316,7 +334,7 @@
               <a href="#" class="btn-add">Add to cart</a>
             </article>
           </div>
-          <div class="col-6 col-lg-3">
+          <div class="col-6 col-lg-3 product-col" data-cat="serum">
             <article class="product">
               <input type="checkbox" class="heart-check" id="heart-3" />
               <label
@@ -333,7 +351,7 @@
               <h3>medicube PDRN Toner Salmon DNA PDRN CICA Soothing Toner</h3>
               <div class="sub">
                 Lightweight Watery Toner with PDRN, Niacinamide, Peptides - For
-                Uneven Skin Tone & Soothing, Korean Skincare, 8.45 fl. oz
+                Uneven Skin Tone &amp; Soothing, Korean Skincare, 8.45 fl. oz
               </div>
               <div class="stars" aria-label="4.5 out of 5">
                 ★★★★☆ <small>(96)</small>
@@ -342,7 +360,7 @@
               <a href="#" class="btn-add">Add to cart</a>
             </article>
           </div>
-          <div class="col-6 col-lg-3">
+          <div class="col-6 col-lg-3 product-col" data-cat="moisturizer">
             <article class="product" id="moisturizer">
               <input type="checkbox" class="heart-check" id="heart-4" />
               <label
@@ -358,8 +376,8 @@
               </div>
               <h3>medicube Rose PDRN Pink Hyaluronic Moisturizing Cream</h3>
               <div class="sub">
-                Blemish Relief, Hydration & Elasticity Care - For the Look of
-                Uneven Skin Tone & Pores, Korean Skincare, 1.69 fl. oz.
+                Blemish Relief, Hydration &amp; Elasticity Care - For the Look
+                of Uneven Skin Tone &amp; Pores, Korean Skincare, 1.69 fl. oz.
               </div>
               <div class="stars" aria-label="5 out of 5">
                 ★★★★★ <small>(185)</small>
@@ -368,7 +386,7 @@
               <a href="#" class="btn-add">Add to cart</a>
             </article>
           </div>
-          <div class="col-6 col-lg-3">
+          <div class="col-6 col-lg-3 product-col" data-cat="moisturizer">
             <article class="product">
               <input type="checkbox" class="heart-check" id="heart-5" />
               <label
@@ -378,16 +396,16 @@
               ></label>
               <div class="pic">
                 <img
-                  src="../photos/Medicube Collagen Jelly Cream Crema Viso con Collagene Idrolizzato, Effetto Idratazione & Glow.jpg"
+                  src="../photos/Medicube Collagen Jelly Cream Crema Viso con Collagene Idrolizzato, Effetto Idratazione &amp; Glow.jpg"
                   alt="Barrier Repair Cream"
                 />
               </div>
               <h3>
-                medicube Jelly Cream with Collagen & Niacinamide, 1.69 fl.oz
+                medicube Jelly Cream with Collagen &amp; Niacinamide, 1.69 fl.oz
               </h3>
               <div class="sub">
                 Freeze-Dried Hydrolyzed Collagen for Skin Barrier Hydration, 24H
-                Glow & Lifted Look, Korean skincare, 1.69 fl.oz
+                Glow &amp; Lifted Look, Korean skincare, 1.69 fl.oz
               </div>
               <div class="stars" aria-label="4.5 out of 5">
                 ★★★★☆ <small>(141)</small>
@@ -396,7 +414,7 @@
               <a href="#" class="btn-add">Add to cart</a>
             </article>
           </div>
-          <div class="col-6 col-lg-3">
+          <div class="col-6 col-lg-3 product-col" data-cat="sun">
             <article class="product" id="sun">
               <input type="checkbox" class="heart-check" id="heart-6" />
               <label
@@ -406,14 +424,15 @@
               ></label>
               <div class="pic">
                 <img
-                  src="../photos/Medicube Collagen Glow Sunscreen SPF 50, Just Glow No Cast Facial Sun Lotion, Soothing & Hydrating Sunscreen With Centella Asiatica, Anti-Photoaging Korean Sun Care.jpg"
+                  src="../photos/Medicube Collagen Glow Sunscreen SPF 50, Just Glow No Cast Facial Sun Lotion, Soothing &amp; Hydrating Sunscreen With Centella Asiatica, Anti-Photoaging Korean Sun Care.jpg"
                   alt="Daily Shield SPF 50"
                 />
               </div>
               <h3>medicube Sunscreen No Cast Just Glow Collagen, SPF 50</h3>
               <div class="sub">
-                SPF 50 Hydrating Face Sunscreen - Lightweight & Non-Sticky
-                Formula, Peptide & Cica for Soothing & Glow, Korean Skincare
+                SPF 50 Hydrating Face Sunscreen - Lightweight &amp; Non-Sticky
+                Formula, Peptide &amp; Cica for Soothing &amp; Glow, Korean
+                Skincare
               </div>
               <div class="stars" aria-label="4.5 out of 5">
                 ★★★★☆ <small>(158)</small>
@@ -422,7 +441,7 @@
               <a href="#" class="btn-add">Add to cart</a>
             </article>
           </div>
-          <div class="col-6 col-lg-3">
+          <div class="col-6 col-lg-3 product-col" data-cat="mask">
             <article class="product" id="mask">
               <input type="checkbox" class="heart-check" id="heart-7" />
               <label
@@ -440,8 +459,8 @@
                 medicube Wrapping Mask Collagen - Overnight Peel Off Facial Mask
               </h3>
               <div class="sub">
-                Elasticity & Hydration Care, Reduces Sagging & Dullness -
-                Hydrolyzed Collagen For Glowing Skin, Korean Skin Care, 2.53
+                Elasticity &amp; Hydration Care, Reduces Sagging &amp; Dullness
+                - Hydrolyzed Collagen For Glowing Skin, Korean Skin Care, 2.53
                 fl.oz
               </div>
               <div class="stars" aria-label="4 out of 5">
@@ -451,7 +470,7 @@
               <a href="#" class="btn-add">Add to cart</a>
             </article>
           </div>
-          <div class="col-6 col-lg-3">
+          <div class="col-6 col-lg-3 product-col" data-cat="sets">
             <article class="product" id="sets">
               <input type="checkbox" class="heart-check" id="heart-8" />
               <label
@@ -480,7 +499,6 @@
       </div>
     </section>
 
-    <!-- In store -->
     <section class="section band" id="instore">
       <div class="container">
         <div class="row align-items-center g-4">
@@ -504,19 +522,18 @@
       </div>
     </section>
 
-    <!-- Mini set -->
     <section class="section miniset" id="miniset">
       <div class="container">
         <div class="center-head">
           <h2>Clear + Clarify mini set</h2>
-          <p>For combination to oily skin. Use the four steps in this order.</p>
+          <p>For combination to oily skin. Use the five steps in this order.</p>
         </div>
         <div class="row g-4 align-items-center">
           <div class="col-lg-6">
             <div class="mini-img">
               <img
                 src="../photos/Medicube PDRN Glow Essentials Kit, Mini Skincare Travel Set, 5-Step Routine.jpg"
-                alt="Four mini products: face wash, mask, moisturizer and facial oil"
+                alt="Five mini products: cleansing foam, toner, serums and gel mask"
               />
             </div>
           </div>
@@ -524,35 +541,35 @@
             <div class="mstep">
               <div class="n">1</div>
               <div>
-                <h3>PORN Capsule Cleansing Foam</h3>
-                <p>Cleanse Deep Cleansing & Hydration</p>
+                <h3>PDRN Capsule Cleansing Foam</h3>
+                <p>Cleanse Deep Cleansing &amp; Hydration</p>
               </div>
             </div>
             <div class="mstep">
               <div class="n">2</div>
               <div>
                 <h3>PDRN Milky Toner</h3>
-                <p>PREP Boosts Hydration & Skin Prep</p>
+                <p>PREP Boosts Hydration &amp; Skin Prep</p>
               </div>
             </div>
             <div class="mstep">
               <div class="n">3</div>
               <div>
                 <h3>PDRN Peptide Serum</h3>
-                <p>BOOST Improves Radiance & Skin Barrier</p>
+                <p>BOOST Improves Radiance &amp; Skin Barrier</p>
               </div>
             </div>
             <div class="mstep">
               <div class="n">4</div>
               <div>
                 <h3>PDRN Eye Serum</h3>
-                <p>TARGET Targets Fine Lines & Dark Circles</p>
+                <p>TARGET Targets Fine Lines &amp; Dark Circles</p>
               </div>
             </div>
             <div class="mstep">
               <div class="n">5</div>
               <div>
-                <h3>PORN Collagen Gel Mask</h3>
+                <h3>PDRN Collagen Gel Mask</h3>
                 <p>LOCK Locks in hydration for lasting glow</p>
               </div>
             </div>
@@ -564,7 +581,6 @@
       </div>
     </section>
 
-    <!-- Reviews -->
     <section class="loved" id="reviews">
       <div class="container">
         <div class="loved-head">
@@ -606,7 +622,212 @@
       </div>
     </section>
 
-    <!-- Newsletter -->
+    <section class="section pt-0" id="faq">
+      <div class="container">
+        <div class="row g-5">
+          <div class="col-lg-4"><h2>Questions we get a lot</h2></div>
+          <div class="col-lg-8">
+            <div class="accordion" id="faqs">
+              <div class="accordion-item">
+                <h3 class="accordion-header">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#q1"
+                    aria-expanded="false"
+                    aria-controls="q1"
+                  >
+                    Is medicube safe for acne-prone skin?
+                  </button>
+                </h3>
+                <div
+                  id="q1"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#faqs"
+                >
+                  <div class="accordion-body">
+                    Most medicube skincare products are dermatologist-tested and
+                    formulated for sensitive and acne-prone skin. The Zero Pore
+                    Pads use BHA (salicylic acid) which is specifically
+                    effective for acne and blackheads. The Super Cica Daily
+                    Quick Mask uses centella asiatica to calm inflammation.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h3 class="accordion-header">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#q2"
+                    aria-expanded="false"
+                    aria-controls="q2"
+                  >
+                    How to use the medicube Collagen Jelly Cream
+                  </button>
+                </h3>
+                <div
+                  id="q2"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#faqs"
+                >
+                  <div class="accordion-body">
+                    Apply a small amount to clean skin as the last step in your
+                    routine. The Collagen Jelly Cream works as a moisturiser and
+                    occlusive — it seals in the layers underneath while
+                    delivering hydrolysed collagen and peptides. Use morning or
+                    night, or both. It pairs well with the AGE-R Booster Gel
+                    Serum when using the Booster Pro device.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h3 class="accordion-header">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#q3"
+                    aria-expanded="false"
+                    aria-controls="q3"
+                  >
+                    Is medicube cruelty free?
+                  </button>
+                </h3>
+                <div
+                  id="q3"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#faqs"
+                >
+                  <div class="accordion-body">
+                    medicube products are not tested on animals. Check
+                    individual product packaging for specific cruelty-free
+                    certifications.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h3 class="accordion-header">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#q4"
+                    aria-expanded="false"
+                    aria-controls="q4"
+                  >
+                    Does medicube remove blackheads?
+                  </button>
+                </h3>
+                <div
+                  id="q4"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#faqs"
+                >
+                  <div class="accordion-body">
+                    The medicube Zero Pore Pads 2.0 contain BHA and AHA to clear
+                    pores and reduce blackheads with regular use. The Booster
+                    Pro's Air Shot mode also helps with pore care by improving
+                    product penetration.
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item" id="shipping-policy">
+                <h3 class="accordion-header">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#q5"
+                    aria-expanded="false"
+                    aria-controls="q5"
+                  >
+                    Shipping Policy
+                  </button>
+                </h3>
+                <div
+                  id="q5"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#faqs"
+                >
+                  <div class="accordion-body">
+                    We carefully pack every order to make sure your skincare
+                    arrives safely and in perfect condition.
+
+                    <li>Orders are processed within 1–2 business days.</li>
+                    <li>Delivery usually takes 2–5 business days.</li>
+                    <li>
+                      Free shipping is available on orders over 2,000 EGP.
+                    </li>
+                    <li>
+                      You will receive your order details and delivery updates
+                      after your order is confirmed.
+                    </li>
+                    <li>
+                      All orders are shipped directly to the address provided at
+                      checkout.
+                    </li>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item" id="Returns-and-refunds">
+                <h3 class="accordion-header">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#q6"
+                    aria-expanded="false"
+                    aria-controls="q6"
+                  >
+                    Returns and refunds
+                  </button>
+                </h3>
+                <div
+                  id="q6"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#faqs"
+                >
+                  <div class="accordion-body">
+                    <h5>satisfaction matters to us.<br /></h5>
+                    <span>
+                      If your order arrives damaged, incorrect, or incomplete,
+                      please contact us within 15 days of receiving your order.
+                    </span>
+
+                    <li>
+                      Products must be unused and unopened to be eligible for a
+                      return.
+                    </li>
+                    <li>
+                      Damaged or incorrect items can be replaced or refunded.
+                    </li>
+                    <li>
+                      Please provide your order number and photos of the product
+                      when contacting us.
+                    </li>
+                    <li>
+                      Refunds are processed after the returned item has been
+                      inspected.
+                    </li>
+                    <li>
+                      Opened or used skincare products cannot be returned for
+                      hygiene and safety reasons.
+                    </li>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="join" id="contact">
       <div class="container">
         <div class="row align-items-center g-4">
@@ -635,7 +856,6 @@
       </div>
     </section>
 
-    <!-- Footer -->
     <footer>
       <div class="container">
         <div class="row g-4">
@@ -673,41 +893,39 @@
 
           <div class="col-6 col-lg-2">
             <h4>Quick links</h4>
-            <ul class="footer-links">
-              <li><a href="#home">Home</a></li>
-              <li><a href="#categories">Shop</a></li>
-              <li><a href="#bestsellers">Best sellers</a></li>
-              <li><a href="#miniset">Mini set</a></li>
-            </ul>
+            <div class="footer-links">
+              <a href="#home">Home</a>
+              <a href="#categories">Shop</a>
+              <a href="#bestsellers">Best sellers</a>
+              <a href="#miniset">Mini set</a>
+            </div>
           </div>
 
           <div class="col-6 col-lg-3">
             <h4>Customer care</h4>
-            <ul class="footer-links">
-              <li><a href="#contact">Track your order</a></li>
-              <li><a href="#contact">Shipping policy</a></li>
-              <li><a href="#contact">Returns and refunds</a></li>
-              <li><a href="#contact">FAQs</a></li>
-            </ul>
+            <div class="footer-links">
+              <a href="#faq"> Shipping policy </a>
+              <a href="#faq">Returns and refunds</a>
+              <a href="#faq">FAQ</a>
+              <a href="../project/contact.html">Contact</a>
+            </div>
           </div>
 
           <div class="col-lg-3">
-            <h4>We accept</h4>
-
+            <h4>Contact</h4>
             <div class="pay">
-              <span>VISA</span>
-              <span>Mastercard</span>
-              <span>PayPal</span>
+              <span>Email: Help@Rosée.global</span>
+              <span>Phone: +20 10-4525-5725</span>
+              <span>Location: Cairo, Egypt</span>
             </div>
-
-            <p>Free shipping over $40. 15 day easy returns.</p>
+            <p>Free shipping over 2,000 EGP. 15 day easy returns.</p>
           </div>
         </div>
-
         <div class="footer-bottom">
           &copy; 2026 Rosée Skin. All rights reserved.
         </div>
       </div>
     </footer>
+    <script src="./index.js"></script>
   </body>
 </html>
