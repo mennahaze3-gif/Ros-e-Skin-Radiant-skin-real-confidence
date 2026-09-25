@@ -4,12 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rosée Skin – Radiant skin, real confidence</title>
-    <link rel="stylesheet" href="style.css" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
       crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     />
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
@@ -25,8 +29,9 @@
     <nav class="navbar navbar-expand-lg sticky-top">
       <div class="container">
         <a class="logo" href="./index.html">Rosée<small>SKIN</small></a>
+
         <button
-          class="navbar-toggler ms-auto me-2"
+          class="navbar-toggler order-lg-3"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#menu"
@@ -36,8 +41,9 @@
         >
           <span class="navbar-toggler-icon"></span>
         </button>
+
         <div
-          class="collapse navbar-collapse navbar-nav mx-auto gap-lg-3"
+          class="collapse navbar-collapse navbar-nav mx-auto gap-lg-3 order-lg-2"
           id="menu"
         >
           <a class="nav-link active" href="./index.html">Home</a>
@@ -47,8 +53,143 @@
           <a class="nav-link" href="index.html#reviews">Reviews</a>
           <a class="nav-link" href="#faq">FAQ</a>
         </div>
+
+        <div class="icons order-lg-4">
+          <a
+            href="#"
+            class="fas fa-shopping-cart cart-icon"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#bag"
+            aria-controls="bag"
+          >
+            <span class="cart-count d-none" id="cartCount">0</span>
+          </a>
+          <a
+            href="../project/sign-up.html"
+            class="fas fa-user"
+            id="loginLink"
+          ></a>
+
+          <div class="dropdown d-none" id="userMenu">
+            <a
+              href="#"
+              class="fas fa-user"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            ></a>
+            <ul class="dropdown-menu dropdown-menu-end user-dropdown">
+              <li><a class="dropdown-item" href="#">My profile</a></li>
+              <li><a class="dropdown-item" href="#">My orders</a></li>
+              <li><a class="dropdown-item" href="#">Wishlist</a></li>
+              <li><hr class="dropdown-divider" /></li>
+              <li>
+                <a
+                  class="dropdown-item"
+                  href="javascript:void(0)"
+                  onclick="signOut()"
+                  >Sign out</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
     </nav>
+    <div
+      class="offcanvas offcanvas-end"
+      tabindex="-1"
+      id="bag"
+      aria-labelledby="bagTitle"
+    >
+      <div class="offcanvas-header">
+        <h2 class="offcanvas-title h4" id="bagTitle">Your bag</h2>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="offcanvas-body d-flex flex-column">
+        <div id="bagLines" class="flex-grow-1">
+          <p class="text-soft small mb-0">
+            Your bag is empty. Add a product to start.
+          </p>
+        </div>
+        <div class="promo mt-3">
+          <div class="input-group">
+            <input
+              id="promo"
+              class="form-control"
+              placeholder="Promo code"
+              aria-label="Promo code"
+            /><button
+              class="btn btn-rose"
+              id="applyPromo"
+              type="button"
+              onclick="applyDiscount()"
+            >
+              Apply
+            </button>
+          </div>
+          <div
+            class="small mt-1 text-soft"
+            id="promoMsg"
+            aria-live="polite"
+          ></div>
+        </div>
+        <div class="d-flex justify-content-between mt-3">
+          <span>Subtotal</span><span id="sub">0.00 EGP</span>
+        </div>
+        <div
+          class="d-flex justify-content-between text-soft small d-none"
+          id="discRow"
+        >
+          <span>Discount (30%)</span><span id="disc">-0.00 EGP</span>
+        </div>
+        <div class="d-flex justify-content-between fw-semibold fs-5 mt-1">
+          <span>Total</span><span id="total">0.00 EGP</span>
+        </div>
+        <div class="small text-soft mt-1" id="ship"></div>
+        <button
+            class="btn btn-rose w-100 mt-3"
+            id="checkout"
+            onclick="goToCheckout()"
+          >
+            Checkout
+          </button>
+      </div>
+    </div>
+
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+      <div
+        id="loginToast"
+        class="toast"
+        role="alert"
+        aria-live="assertive"
+        aria-atomic="true"
+      >
+        <div class="toast-header">
+          <strong class="me-auto">Rosée Skin</strong>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="toast"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="toast-body">
+          Please login or sign up first to add items to your bag.
+          <div class="mt-2 pt-2 border-top d-flex gap-2">
+            <a href="login.html" class="btn btn-rose btn-sm">Login</a>
+            <a href="sign-up.html" class="btn btn-outline-secondary btn-sm"
+              >Sign up</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
     <header class="hero" id="home">
       <img
         src="../photos/background.jpg"
@@ -302,7 +443,17 @@
                 ★★★★☆ <small>(125)</small>
               </div>
               <div class="price">800 EGP</div>
-              <a href="#" class="btn-add">Add to cart</a>
+              <a
+                href="javascript:void(0)"
+                onclick="
+                  addToCart(
+                    'medicube Facial Cleanser PDRN Pink Glutathione Capsule Foam Cleanser',
+                    800,
+                  )
+                "
+                class="btn-add"
+                >Add to cart</a
+              >
             </article>
           </div>
           <div class="col-6 col-lg-3 product-col" data-cat="serum">
@@ -331,7 +482,17 @@
                 ★★★★★ <small>(200)</small>
               </div>
               <div class="price">1,032.16 EGP</div>
-              <a href="#" class="btn-add">Add to cart</a>
+              <a
+                href="javascript:void(0)"
+                onclick="
+                  addToCart(
+                    'medicube Jelly Mist Serum with Pink PDRN Collagen',
+                    1032.16,
+                  )
+                "
+                class="btn-add"
+                >Add to cart</a
+              >
             </article>
           </div>
           <div class="col-6 col-lg-3 product-col" data-cat="serum">
@@ -357,7 +518,17 @@
                 ★★★★☆ <small>(96)</small>
               </div>
               <div class="price">950.60 EGP</div>
-              <a href="#" class="btn-add">Add to cart</a>
+              <a
+                href="javascript:void(0)"
+                onclick="
+                  addToCart(
+                    'medicube PDRN Toner Salmon DNA PDRN CICA Soothing Toner',
+                    950.6,
+                  )
+                "
+                class="btn-add"
+                >Add to cart</a
+              >
             </article>
           </div>
           <div class="col-6 col-lg-3 product-col" data-cat="moisturizer">
@@ -383,7 +554,17 @@
                 ★★★★★ <small>(185)</small>
               </div>
               <div class="price">1,037.38 EGP</div>
-              <a href="#" class="btn-add">Add to cart</a>
+              <a
+                href="javascript:void(0)"
+                onclick="
+                  addToCart(
+                    'medicube Rose PDRN Pink Hyaluronic Moisturizing Cream',
+                    1037.38,
+                  )
+                "
+                class="btn-add"
+                >Add to cart</a
+              >
             </article>
           </div>
           <div class="col-6 col-lg-3 product-col" data-cat="moisturizer">
@@ -401,17 +582,28 @@
                 />
               </div>
               <h3>
-                medicube Jelly Cream with Collagen &amp; Niacinamide, 1.69 fl.oz
+                medicube Jelly Cream with Collagen &amp; Niacinamide, 1.69
+                fl.oz
               </h3>
               <div class="sub">
-                Freeze-Dried Hydrolyzed Collagen for Skin Barrier Hydration, 24H
-                Glow &amp; Lifted Look, Korean skincare, 1.69 fl.oz
+                Freeze-Dried Hydrolyzed Collagen for Skin Barrier Hydration,
+                24H Glow &amp; Lifted Look, Korean skincare, 1.69 fl.oz
               </div>
               <div class="stars" aria-label="4.5 out of 5">
                 ★★★★☆ <small>(141)</small>
               </div>
               <div class="price">776.76 EGP</div>
-              <a href="#" class="btn-add">Add to cart</a>
+              <a
+                href="javascript:void(0)"
+                onclick="
+                  addToCart(
+                    'medicube Jelly Cream with Collagen and Niacinamide',
+                    776.76,
+                  )
+                "
+                class="btn-add"
+                >Add to cart</a
+              >
             </article>
           </div>
           <div class="col-6 col-lg-3 product-col" data-cat="sun">
@@ -438,7 +630,17 @@
                 ★★★★☆ <small>(158)</small>
               </div>
               <div class="price">1,141.46 EGP</div>
-              <a href="#" class="btn-add">Add to cart</a>
+              <a
+                href="javascript:void(0)"
+                onclick="
+                  addToCart(
+                    'medicube Sunscreen No Cast Just Glow Collagen, SPF 50',
+                    1141.46,
+                  )
+                "
+                class="btn-add"
+                >Add to cart</a
+              >
             </article>
           </div>
           <div class="col-6 col-lg-3 product-col" data-cat="mask">
@@ -456,18 +658,24 @@
                 />
               </div>
               <h3>
-                medicube Wrapping Mask Collagen - Overnight Peel Off Facial Mask
+                medicube Wrapping Mask Collagen - Overnight Peel Off Facial
+                Mask
               </h3>
               <div class="sub">
-                Elasticity &amp; Hydration Care, Reduces Sagging &amp; Dullness
-                - Hydrolyzed Collagen For Glowing Skin, Korean Skin Care, 2.53
-                fl.oz
+                Elasticity &amp; Hydration Care, Reduces Sagging &amp;
+                Dullness - Hydrolyzed Collagen For Glowing Skin, Korean Skin
+                Care, 2.53 fl.oz
               </div>
               <div class="stars" aria-label="4 out of 5">
                 ★★★★☆ <small>(88)</small>
               </div>
               <div class="price">990.46 EGP</div>
-              <a href="#" class="btn-add">Add to cart</a>
+              <a
+                href="javascript:void(0)"
+                onclick="addToCart('medicube Wrapping Mask Collagen', 990.46)"
+                class="btn-add"
+                >Add to cart</a
+              >
             </article>
           </div>
           <div class="col-6 col-lg-3 product-col" data-cat="sets">
@@ -492,7 +700,14 @@
                 ★★★★★ <small>(64)</small>
               </div>
               <div class="price">2,908.15 EGP</div>
-              <a href="#" class="btn-add">Add to cart</a>
+              <a
+                href="javascript:void(0)"
+                onclick="
+                  addToCart('medicube PDRN Glow Essentials Kit', 2908.15)
+                "
+                class="btn-add"
+                >Add to cart</a
+              >
             </article>
           </div>
         </div>
@@ -505,8 +720,8 @@
           <div class="col-md-6 order-2 order-md-1">
             <h2>Shop in store.</h2>
             <p>
-              Now at select pharmacies and beauty counters. Grab your basket and
-              try the full range in person.
+              Now at select pharmacies and beauty counters. Grab your basket
+              and try the full range in person.
             </p>
             <a href="#contact" class="btn btn-rose">Find a store</a>
           </div>
@@ -526,7 +741,9 @@
       <div class="container">
         <div class="center-head">
           <h2>Clear + Clarify mini set</h2>
-          <p>For combination to oily skin. Use the five steps in this order.</p>
+          <p>
+            For combination to oily skin. Use the five steps in this order.
+          </p>
         </div>
         <div class="row g-4 align-items-center">
           <div class="col-lg-6">
@@ -573,7 +790,11 @@
                 <p>LOCK Locks in hydration for lasting glow</p>
               </div>
             </div>
-            <a href="#" class="btn btn-rose mt-3"
+            <a
+              href="javascript:void(0)"
+              onclick="addToCart('Mini Set', 2908.15)"
+              class="btn btn-rose mt-3"
+              id="miniSet"
               >Add mini set to bag · 2,908.15 EGP</a
             >
           </div>
@@ -592,8 +813,8 @@
             <div class="review">
               <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
               <p>
-                My skin has never looked this fresh. The serum is magic and the
-                cleanser does not leave my face tight.
+                My skin has never looked this fresh. The serum is magic and
+                the cleanser does not leave my face tight.
               </p>
               <div class="who">Tasha M.</div>
             </div>
@@ -612,8 +833,8 @@
             <div class="review">
               <div class="stars" aria-label="4 out of 5 stars">★★★★☆</div>
               <p>
-                The gel moisturizer feels like water and lasts all day. I would
-                love a bigger size, that is my only wish.
+                The gel moisturizer feels like water and lasts all day. I
+                would love a bigger size, that is my only wish.
               </p>
               <div class="who">Nour A.</div>
             </div>
@@ -647,9 +868,9 @@
                   data-bs-parent="#faqs"
                 >
                   <div class="accordion-body">
-                    Most medicube skincare products are dermatologist-tested and
-                    formulated for sensitive and acne-prone skin. The Zero Pore
-                    Pads use BHA (salicylic acid) which is specifically
+                    Most medicube skincare products are dermatologist-tested
+                    and formulated for sensitive and acne-prone skin. The Zero
+                    Pore Pads use BHA (salicylic acid) which is specifically
                     effective for acne and blackheads. The Super Cica Daily
                     Quick Mask uses centella asiatica to calm inflammation.
                   </div>
@@ -675,12 +896,13 @@
                   data-bs-parent="#faqs"
                 >
                   <div class="accordion-body">
-                    Apply a small amount to clean skin as the last step in your
-                    routine. The Collagen Jelly Cream works as a moisturiser and
-                    occlusive — it seals in the layers underneath while
-                    delivering hydrolysed collagen and peptides. Use morning or
-                    night, or both. It pairs well with the AGE-R Booster Gel
-                    Serum when using the Booster Pro device.
+                    Apply a small amount to clean skin as the last step in
+                    your routine. The Collagen Jelly Cream works as a
+                    moisturiser and occlusive — it seals in the layers
+                    underneath while delivering hydrolysed collagen and
+                    peptides. Use morning or night, or both. It pairs well
+                    with the AGE-R Booster Gel Serum when using the Booster
+                    Pro device.
                   </div>
                 </div>
               </div>
@@ -730,10 +952,10 @@
                   data-bs-parent="#faqs"
                 >
                   <div class="accordion-body">
-                    The medicube Zero Pore Pads 2.0 contain BHA and AHA to clear
-                    pores and reduce blackheads with regular use. The Booster
-                    Pro's Air Shot mode also helps with pore care by improving
-                    product penetration.
+                    The medicube Zero Pore Pads 2.0 contain BHA and AHA to
+                    clear pores and reduce blackheads with regular use. The
+                    Booster Pro's Air Shot mode also helps with pore care by
+                    improving product penetration.
                   </div>
                 </div>
               </div>
@@ -758,20 +980,21 @@
                   <div class="accordion-body">
                     We carefully pack every order to make sure your skincare
                     arrives safely and in perfect condition.
-
-                    <li>Orders are processed within 1–2 business days.</li>
-                    <li>Delivery usually takes 2–5 business days.</li>
-                    <li>
-                      Free shipping is available on orders over 2,000 EGP.
-                    </li>
-                    <li>
-                      You will receive your order details and delivery updates
-                      after your order is confirmed.
-                    </li>
-                    <li>
-                      All orders are shipped directly to the address provided at
-                      checkout.
-                    </li>
+                    <ul class="ps-3 mb-0">
+                      <li>Orders are processed within 1–2 business days.</li>
+                      <li>Delivery usually takes 2–5 business days.</li>
+                      <li>
+                        Free shipping is available on orders over 2,000 EGP.
+                      </li>
+                      <li>
+                        You will receive your order details and delivery
+                        updates after your order is confirmed.
+                      </li>
+                      <li>
+                        All orders are shipped directly to the address
+                        provided at checkout.
+                      </li>
+                    </ul>
                   </div>
                 </div>
               </div>
@@ -797,28 +1020,31 @@
                     <h5>satisfaction matters to us.<br /></h5>
                     <span>
                       If your order arrives damaged, incorrect, or incomplete,
-                      please contact us within 15 days of receiving your order.
+                      please contact us within 15 days of receiving your
+                      order.
                     </span>
-
-                    <li>
-                      Products must be unused and unopened to be eligible for a
-                      return.
-                    </li>
-                    <li>
-                      Damaged or incorrect items can be replaced or refunded.
-                    </li>
-                    <li>
-                      Please provide your order number and photos of the product
-                      when contacting us.
-                    </li>
-                    <li>
-                      Refunds are processed after the returned item has been
-                      inspected.
-                    </li>
-                    <li>
-                      Opened or used skincare products cannot be returned for
-                      hygiene and safety reasons.
-                    </li>
+                    <ul class="ps-3 mb-0">
+                      <li>
+                        Products must be unused and unopened to be eligible
+                        for a return.
+                      </li>
+                      <li>
+                        Damaged or incorrect items can be replaced or
+                        refunded.
+                      </li>
+                      <li>
+                        Please provide your order number and photos of the
+                        product when contacting us.
+                      </li>
+                      <li>
+                        Refunds are processed after the returned item has been
+                        inspected.
+                      </li>
+                      <li>
+                        Opened or used skincare products cannot be returned
+                        for hygiene and safety reasons.
+                      </li>
+                    </ul>
                   </div>
                 </div>
               </div>
@@ -872,7 +1098,6 @@
               >
                 <img src="../photos/facebook.svg" alt="Facebook" />
               </a>
-
               <a
                 class="soc"
                 href="https://www.instagram.com/"
@@ -880,12 +1105,14 @@
               >
                 <img src="../photos/instagram.svg" alt="Instagram" />
               </a>
-
               <a class="soc" href="https://x.com/" aria-label="X">
                 <img src="../photos/twitter-x.svg" alt="X" />
               </a>
-
-              <a class="soc" href="https://www.tiktok.com/" aria-label="TikTok">
+              <a
+                class="soc"
+                href="https://www.tiktok.com/"
+                aria-label="TikTok"
+              >
                 <img src="../photos/tiktok.svg" alt="TikTok" />
               </a>
             </div>

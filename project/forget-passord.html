@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Rosée Skin – Forgot Password</title>
+  </head>
+  <body>
+    <div class="announce">
+      Free shipping on orders over 2,000 EGP &nbsp;|&nbsp; Use code
+      <b>GLOW15</b> for 30% off
+    </div>
+    <div
+      class="container d-flex justify-content-center align-items-center py-5"
+    >
+      <div class="row border rounded-5 p-3 bg-white shadow box-area">
+        <!-- Left Side -->
+        <div
+          class="col-md-6 rounded-4 d-flex justify-content-center align-items-center flex-column left-box"
+        >
+          <div class="col-lg-6">
+            <div class="mini-img">
+              <img
+                src="../photos/MEDICUBE SKINCARE.jpg"
+                alt="Five mini products: cleansing foam, toner, serums and gel mask"
+              />
+            </div>
+          </div>
+        </div>
+       
+        <div class="col-md-6 right-box">
+          <div class="row align-items-center">
+            <div class="header-text mb-4">
+              <h2>Forgot Password?</h2>
+              <p>No worries, we'll help you get your glow back.</p>
+            </div>
+            <form action="index.html" onsubmit="return signUp()">
+            
+              <div class="input-group mb-3">
+                <input
+                  type="email"
+                  class="form-control form-control-lg bg-light fs-6"
+                  placeholder="Email address"
+                  required
+                />
+              </div>
+             
+              <div class="input-group mb-3">
+                <input
+                  type="password"
+                  id="signPassword"
+                  class="form-control form-control-lg bg-light fs-6"
+                  placeholder="Password (at least 6 characters)"
+                  minlength="6"
+                  required
+                />
+              </div>
+              
+              <div class="input-group mb-1">
+                <input
+                  type="password"
+                  id="signConfirm"
+                  class="form-control form-control-lg bg-light fs-6"
+                  placeholder="Confirm password"
+                  required
+                />
+              </div>
+              <div class="text-danger small mb-3" id="passError"></div>
+         
+              <div class="input-group mb-3">
+                <button type="submit" class="btn btn-lg btn-primary w-100 fs-6">
+                  Reset Password
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./index.js"></script>
+  </body>
+</html>

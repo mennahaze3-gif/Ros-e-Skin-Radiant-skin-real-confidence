@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rosée Skin – checkout</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <div class="announce">
+      Free shipping on orders over 2,000 EGP &nbsp;|&nbsp; Use code
+      <b>GLOW15</b> for 15% off
+    </div>
+    <nav class="navbar navbar-expand-lg sticky-top">
+      <div class="container">
+        <a class="logo" href="./index.html">Rosée<small>SKIN</small></a>
+
+        <button
+          class="navbar-toggler order-lg-3"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#menu"
+          aria-controls="menu"
+          aria-expanded="false"
+          aria-label="Toggle menu"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div
+          class="collapse navbar-collapse navbar-nav mx-auto gap-lg-3 order-lg-2"
+          id="menu"
+        >
+          <a class="nav-link active" href="./index.html">Home</a>
+          <a class="nav-link" href="index.html#categories">Shop</a>
+          <a class="nav-link" href="index.html#bestsellers">Best sellers</a>
+          <a class="nav-link" href="index.html#miniset">Mini set</a>
+          <a class="nav-link" href="index.html#reviews">Reviews</a>
+          <a class="nav-link" href="#faq">FAQ</a>
+        </div>
+
+        <div class="icons order-lg-4">
+          <a
+            href="#"
+            class="fas fa-shopping-cart cart-icon"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#bag"
+            aria-controls="bag"
+          >
+            <span class="cart-count d-none" id="cartCount">0</span>
+          </a>
+          <a
+            href="../project/sign-up.html"
+            class="fas fa-user"
+            id="loginLink"
+          ></a>
+
+          <div class="dropdown d-none" id="userMenu">
+            <a
+              href="#"
+              class="fas fa-user"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            ></a>
+            <ul class="dropdown-menu dropdown-menu-end user-dropdown">
+              <li><a class="dropdown-item" href="#">My profile</a></li>
+              <li><a class="dropdown-item" href="#">My orders</a></li>
+              <li><a class="dropdown-item" href="#">Wishlist</a></li>
+              <li><hr class="dropdown-divider" /></li>
+              <li>
+                <a
+                  class="dropdown-item"
+                  href="javascript:void(0)"
+                  onclick="signOut()"
+                  >Sign out</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div
+      class="offcanvas offcanvas-end"
+      tabindex="-1"
+      id="bag"
+      aria-labelledby="bagTitle"
+    >
+      <div class="offcanvas-header">
+        <h2 class="offcanvas-title h4" id="bagTitle">Your bag</h2>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="offcanvas-body d-flex flex-column">
+        <div id="bagLines" class="flex-grow-1">
+          <p class="text-soft small mb-0">
+            Your bag is empty. Add a product to start.
+          </p>
+        </div>
+        <div class="promo mt-3">
+          <div class="input-group">
+            <input
+              id="promo"
+              class="form-control"
+              placeholder="Promo code"
+              aria-label="Promo code"
+            /><button
+              class="btn btn-rose"
+              id="applyPromo"
+              type="button"
+              onclick="applyDiscount()"
+            >
+              Apply
+            </button>
+          </div>
+          <div
+            class="small mt-1 text-soft"
+            id="promoMsg"
+            aria-live="polite"
+          ></div>
+        </div>
+        <div class="d-flex justify-content-between mt-3">
+          <span>Subtotal</span><span id="sub">0.00 EGP</span>
+        </div>
+        <div
+          class="d-flex justify-content-between text-soft small d-none"
+          id="discRow"
+        >
+          <span>Discount (30%)</span><span id="disc">-0.00 EGP</span>
+        </div>
+        <div class="d-flex justify-content-between fw-semibold fs-5 mt-1">
+          <span>Total</span><span id="total">0.00 EGP</span>
+        </div>
+        <div class="small text-soft mt-1" id="ship"></div>
+        <button
+          class="btn btn-rose w-100 mt-3"
+          id="checkout"
+          onclick="goToCheckout()"
+        >
+          Checkout
+        </button>
+      </div>
+    </div>
+
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+      <div
+        id="loginToast"
+        class="toast"
+        role="alert"
+        aria-live="assertive"
+        aria-atomic="true"
+      >
+        <div class="toast-header">
+          <strong class="me-auto">Rosée Skin</strong>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="toast"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="toast-body">
+          Please login or sign up first to add items to your bag.
+          <div class="mt-2 pt-2 border-top d-flex gap-2">
+            <a href="login.html" class="btn btn-rose btn-sm">Login</a>
+            <a href="sign-up.html" class="btn btn-outline-secondary btn-sm"
+              >Sign up</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <div
+        id="orderToast"
+        class="toast"
+        role="alert"
+        aria-live="assertive"
+        aria-atomic="true"
+      >
+        <div class="toast-header">
+          <strong class="me-auto">Rosée Skin</strong>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="toast"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="toast-body">
+          Order confirmed! Check your email for details.
+        </div>
+      </div>
+    </div>
+
+    <div class="checkout-page">
+      <div class="container">
+        <div class="checkout-card">
+          <div class="header-text mb-4">
+            <h2>Checkout</h2>
+            <p>Enter your shipping details to complete your order.</p>
+          </div>
+
+          <form
+            class="row g-3 checkout-form"
+            id="checkoutForm"
+            onsubmit="return confirmOrder()"
+          >
+            <div class="col-md-6">
+              <label for="inputEmail4" class="form-label">Email</label>
+              <input
+                type="email"
+                class="form-control"
+                id="inputEmail4"
+                required
+              />
+            </div>
+            <div class="col-md-6">
+              <label for="inputPassword4" class="form-label">Password</label>
+              <input
+                type="password"
+                class="form-control"
+                id="inputPassword4"
+                required
+              />
+            </div>
+            <div class="col-12">
+              <label for="inputAddress" class="form-label">Address</label>
+              <input
+                type="text"
+                class="form-control"
+                id="inputAddress"
+                placeholder="1234 Main St"
+                required
+              />
+            </div>
+            <div class="col-12">
+              <label for="inputAddress2" class="form-label">Address 2</label>
+              <input
+                type="text"
+                class="form-control"
+                id="inputAddress2"
+                placeholder="Apartment, studio, or floor"
+              />
+            </div>
+            <div class="col-md-6">
+              <label for="inputCity" class="form-label">City</label>
+              <input
+                type="text"
+                class="form-control"
+                id="inputCity"
+                required
+              />
+            </div>
+            <div class="col-md-4">
+              <label for="inputState" class="form-label">State</label>
+              <select id="inputState" class="form-select" required>
+                <option selected disabled value="">Choose...</option>
+                <option>Cairo</option>
+                <option>Giza</option>
+                <option>Alexandria</option>
+                <option>Port Said</option>
+                <option>Damietta</option>
+                <option>Dakahlia</option>
+                <option>Sharqia</option>
+                <option>Qalyubia</option>
+                <option>Gharbia</option>
+                <option>Monufia</option>
+                <option>Minya</option>
+                <option>Asyut</option>
+              </select>
+            </div>
+            <div class="col-md-2">
+              <label for="inputZip" class="form-label">Zip</label>
+              <input type="text" class="form-control" id="inputZip" required />
+            </div>
+            <div class="col-12">
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  id="gridCheck"
+                  required
+                />
+                <label class="form-check-label" for="gridCheck">
+                  I confirm my shipping details are correct
+                </label>
+              </div>
+            </div>
+
+            <div class="col-12">
+              <button type="submit" class="btn btn-rose w-100">
+                Confirm Order
+              </button>
+            </div>
+            <div class="col-12">
+              <small><a href="index.html">Back to shop</a></small>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-lg-4">
+            <a class="logo" href="#home">Rosée<small>SKIN</small></a>
+
+            <p>Thoughtful beauty for every skin, every day.</p>
+
+            <div class="socials">
+              <a
+                class="soc"
+                href="https://www.facebook.com/"
+                aria-label="Facebook"
+              >
+                <img src="../photos/facebook.svg" alt="Facebook" />
+              </a>
+              <a
+                class="soc"
+                href="https://www.instagram.com/"
+                aria-label="Instagram"
+              >
+                <img src="../photos/instagram.svg" alt="Instagram" />
+              </a>
+              <a class="soc" href="https://x.com/" aria-label="X">
+                <img src="../photos/twitter-x.svg" alt="X" />
+              </a>
+              <a
+                class="soc"
+                href="https://www.tiktok.com/"
+                aria-label="TikTok"
+              >
+                <img src="../photos/tiktok.svg" alt="TikTok" />
+              </a>
+            </div>
+          </div>
+
+          <div class="col-6 col-lg-2">
+            <h4>Quick links</h4>
+            <div class="footer-links">
+              <a href="#home">Home</a>
+              <a href="#categories">Shop</a>
+              <a href="#bestsellers">Best sellers</a>
+              <a href="#miniset">Mini set</a>
+            </div>
+          </div>
+
+          <div class="col-6 col-lg-3">
+            <h4>Customer care</h4>
+            <div class="footer-links">
+              <a href="#faq"> Shipping policy </a>
+              <a href="#faq">Returns and refunds</a>
+              <a href="#faq">FAQ</a>
+              <a href="../project/contact.html">Contact</a>
+            </div>
+          </div>
+
+          <div class="col-lg-3">
+            <h4>Contact</h4>
+            <div class="pay">
+              <span>Email: Help@Rosée.global</span>
+              <span>Phone: +20 10-4525-5725</span>
+              <span>Location: Cairo, Egypt</span>
+            </div>
+            <p>Free shipping over 2,000 EGP. 15 day easy returns.</p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          &copy; 2026 Rosée Skin. All rights reserved.
+        </div>
+      </div>
+    </footer>
+    <script src="./index.js"></script>
+  </body>
+</html>
